@@ -2,6 +2,9 @@ package com.soapmans.heathcheckin.controller;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.soapmans.heathcheckin.service.HeathCheckInService;
+import com.soapmans.heathcheckin.vo.CheckInVo;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,9 +17,9 @@ public class HeathCheckInController {
     @Resource
     private HeathCheckInService heathCheckInService;
 
-    @RequestMapping("/checkin")
-    public String checkin() throws UnirestException {
-        return heathCheckInService.checkin();
+    @PostMapping("/checkin")
+    public String checkin(@RequestBody CheckInVo checkInVo) throws UnirestException {
+        return heathCheckInService.checkin(checkInVo);
     }
 
 }

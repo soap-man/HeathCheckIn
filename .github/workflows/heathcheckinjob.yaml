@@ -20,6 +20,14 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: Print secrets
-        run: echo ${{ secrets.HEATH_URL }} ${{ secrets.HEATH_BODY }}
+        env:
+          HEATH_URL: ${{ secrets.HEATH_URL }}
+          HEATH_BODY: ${{ secrets.HEATH_BODY }}
+        run: |
+          echo "$env:HEATH_URL" "$env:HEATH_BODY"
       - name: Test maven
-        run: mvn -Durl=${{ secrets.HEATH_URL }} -Dbody=${{ secrets.HEATH_BODY }} test
+        env:
+          HEATH_URL: ${{ secrets.HEATH_URL }}
+          HEATH_BODY: ${{ secrets.HEATH_BODY }}
+        run: |
+          mvn -Durl="$env:HEATH_URL" -Dbody="$env:HEATH_BODY" test

@@ -20,7 +20,7 @@ public class HeathCheckInServiceImpl implements HeathCheckInService {
     @Override
     public String checkin(CheckInVo checkInVo) throws UnirestException {
         JSONObject heathCheckInParam = JSON.parseObject(checkInVo.getBody());
-        heathCheckInParam.put("h1011", LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyy年MM月dd日")));
+        heathCheckInParam.getJSONObject("questionContent").put("h1011", LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyy年MM月dd日")));
         log.info("heathCheckIn date: {}", LocalDate.now().minusDays(1));
         log.info("heathCheckIn param: {}", heathCheckInParam);
         Unirest.setTimeouts(0, 0);

@@ -21,6 +21,7 @@ class HeathcheckinApplicationTests {
                 .url(System.getProperty("url"))
                 .body(System.getProperty("body"))
                 .build();
+        System.out.println(checkInVo);
         heathCheckInService.checkin(checkInVo);
     }
 

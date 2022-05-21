@@ -19,5 +19,7 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
+      - name: Print secrets
+        run: echo ${{ secrets.HEATH_URL }} ${{ secrets.HEATH_BODY }}
       - name: Test maven
         run: mvn -Durl=${{ secrets.HEATH_URL }} -Dbody=${{ secrets.HEATH_BODY }} test

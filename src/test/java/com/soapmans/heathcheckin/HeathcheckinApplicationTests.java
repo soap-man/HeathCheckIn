@@ -18,10 +18,9 @@ class HeathcheckinApplicationTests {
     @Test
     void contextLoads() throws UnirestException {
         CheckInVo checkInVo = CheckInVo.builder()
-                .url(System.getProperty("HEATH_URL"))
-                .body(System.getProperty("HEATH_BODY"))
+                .url(System.getProperty("url"))
+                .body(System.getProperty("body"))
                 .build();
-        System.out.println(checkInVo);
         heathCheckInService.checkin(checkInVo);
     }
 

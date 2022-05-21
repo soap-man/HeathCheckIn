@@ -22,7 +22,6 @@ public class HeathCheckInServiceImpl implements HeathCheckInService {
         JSONObject heathCheckInParam = JSON.parseObject(checkInVo.getBody());
         heathCheckInParam.getJSONObject("questionContent").put("h1011", LocalDate.now().minusDays(1).format(DateTimeFormatter.ofPattern("yyyy年MM月dd日")));
         log.info("heathCheckIn date: {}", LocalDate.now().minusDays(1));
-        Unirest.setTimeouts(0, 0);
         HttpResponse<String> result = Unirest.post(checkInVo.getUrl())
                 .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36")
                 .header("Content-Type", "application/json")

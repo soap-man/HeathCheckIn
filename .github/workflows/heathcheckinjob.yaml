@@ -7,7 +7,7 @@ on:
         description: "action: start"
         default: "start"
   schedule:
-    - cron: '1 08 * * *'
+    - cron: '1 16 * * *'
 
 jobs:
   build:
@@ -20,4 +20,4 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: Test maven
-        run: mvn -Durl=${{secrets.HEATH_URL}} -Dbody=${{secrets.HEATH_BODY}} test
+        run: mvn -Durl=${{ secrets.HEATH_URL }} -Dbody=${{ secrets.HEATH_BODY }} test

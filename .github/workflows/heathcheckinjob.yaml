@@ -24,10 +24,10 @@ jobs:
           HEATH_URL: ${{ secrets.HEATH_URL }}
           HEATH_BODY: ${{ secrets.HEATH_BODY }}
         run: |
-          echo "$env:HEATH_URL" "$env:HEATH_BODY"
+          echo "$HEATH_URL" "$HEATH_BODY"
       - name: Test maven
         env:
           HEATH_URL: ${{ secrets.HEATH_URL }}
           HEATH_BODY: ${{ secrets.HEATH_BODY }}
         run: |
-          mvn -Durl="$env:HEATH_URL" -Dbody="$env:HEATH_BODY" test
+          mvn -Durl="$HEATH_URL" -Dbody="$HEATH_BODY" test
